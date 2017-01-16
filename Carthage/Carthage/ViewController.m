@@ -7,16 +7,18 @@
 //
 
 #import "ViewController.h"
-
+#import <MBProgressHUD/MBProgressHUD.h>
 @interface ViewController ()
-
+@property (nonatomic,strong)MBProgressHUD *hud;
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    self.hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    self.hud.label.text = @"加载中";
+    [self.hud hideAnimated:YES afterDelay:3];
 }
 
 - (void)didReceiveMemoryWarning {
